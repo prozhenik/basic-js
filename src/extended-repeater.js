@@ -1,32 +1,21 @@
-const CustomError = require("../extensions/custom-error");
+import { NotImplementedError } from '../extensions/index.js';
 
-module.exports = function repeater(str, options) {
-  debugger;
-  let stringArray = [];
-  if(typeof str !== 'string') {
-    str = '' + str;
-  }
-  if(options.addition !== undefined && typeof options.addition !== 'string') {
-    options.addition = '' + options.addition;
-  }
-  if(!options.repeatTimes || isNaN(options.repeatTimes)) {
-    options.repeatTimes = 1;
-  }
-  for(let i = 0; i < options.repeatTimes; i++) {
-    stringArray.push(str);
-    if(!options.additionRepeatTimes || isNaN(options.additionRepeatTimes)) {
-      options.additionRepeatTimes = 1;
-    }
-    for(let j = 0; j < options.additionRepeatTimes; j++) {
-      options.addition && stringArray.push(options.addition);
-      if(j !== options.additionRepeatTimes - 1) {
-        options.additionSeparator ? stringArray.push(options.additionSeparator) : stringArray.push('|');
-      }
-    }
-    if(i !== options.repeatTimes - 1) {
-      options.separator ? stringArray.push(options.separator) : stringArray.push('+');
-    }
-  }
-  return stringArray.join('');
-};
-  
+/**
+ * Create a repeating string based on the given parameters
+ *  
+ * @param {String} str string to repeat
+ * @param {Object} options options object 
+ * @return {String} repeating string
+ * 
+ *
+ * @example
+ * 
+ * repeater('STRING', { repeatTimes: 3, separator: '**', 
+ * addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00' })
+ * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
+ *
+ */
+export default function repeater(/* str, options */) {
+  throw new NotImplementedError('Not implemented');
+  // remove line with error and write your code here
+}
